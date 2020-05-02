@@ -1,6 +1,11 @@
+
+
 export class MovieModel {
-    title: string;
-    release: string;
-    description: string;
-    image: string
+    constructor(
+        public title: string = '',
+        public releaseDate: string = '',
+        public description: string = '',
+        public image: string = '',
+    ) { }
 }
+

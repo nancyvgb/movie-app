@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import {MovieModel} from '../models/movie-model'
+import { NgForm } from '@angular/forms';
+import {MoviesService} from '../movies.service'
+
+
 
 @Component({
   selector: 'app-add-movie',
@@ -6,10 +12,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-movie.component.scss']
 })
 export class AddMovieComponent implements OnInit {
+  public movieObject =  new MovieModel();
+  datemodel: NgbDateStruct;
+  imageSrc: string;
+  movieList: Array<object> = [];
+  @ViewChild('movieform') movieForm: NgForm;
 
-  constructor() { }
-
+  constructor(private movieService: MoviesService) { }
   ngOnInit(): void {
   }
 
+  public picked(event) {
+    let fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      const file: File = fileList[0];
+      this.handleInputChange(file); //turn into base64   
+    } else {
+      alert("No file selected");
+    }
+  }
+
+  handleInputChange(files) {
+    var file = files;
+    var pattern = /image-*/;
+    var reader = new FileReader();
+    if (!file.type.match(pattern)) {
+      alert("invalid format");
+      return;
+    }
+    reader.onloadend = this._handleReaderLoaded;
+    reader.readAsDataURL(file);
+  }
+  _handleReaderLoaded = (e) => {
+    let reader = e.target;
+    var base64result = reader.result.substr(reader.result);
+    this.movieObject.image = base64result;
+
+  }
+  onSubmit() {
+    this.movieObject.title = this.movieForm.value.title;
+    this.movieObject.releaseDate = this.movieForm.value.date;
+    this.movieObject.description = this.movieForm.value.description;
+    this.movieList.push(this.movieObject)
+    this.movieService.theItem = JSON.stringify(this.movieList); 
+   // console.log('this.movieList', this.movieList)
+   // localStorage.setItem('movieList', JSON.stringify(this.movieList)); //set updated array to local storage
+  }
+ 
 }

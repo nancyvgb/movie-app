@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../movies.service'
 import { Subscription } from 'rxjs';
+import {MovieModel} from '../models/movie-model'
 import {
   trigger,
   state,
@@ -43,14 +44,7 @@ export class HomeComponentComponent implements OnInit {
   clickEventsubscription: Subscription;
   showSideBar: boolean = false;
   emptyState: boolean;
-  moviesList = [
-    {
-      title: "Mi pobre angelito"
-    },
-    {
-      title: "Titanic"
-    }
-  ]
+  moviesList: Array<object> = [];
   movieDetail: object;
   constructor(private moviesService: MoviesService) {
     this.clickEventsubscription = this.moviesService.getClickEvent().subscribe(() => {
@@ -59,7 +53,16 @@ export class HomeComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.emptyState = this.moviesList.length == 0
+    this.emptyState = this.moviesList.length == 0;
+    let data = localStorage.getItem('movieList');
+    this.moviesService.itemValue.subscribe((nextValue) => {
+    let list = JSON.parse(nextValue);
+    this.moviesList = list;
+      console.log('this.moviesList', this.moviesList)
+   })
+   
+  
+   // console.log('this.moviesList', this.moviesList)
   }
 
   /**

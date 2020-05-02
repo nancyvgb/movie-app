@@ -7,3 +7,11 @@ textarea {
             box-sizing: border-box;
 
 }
+
+input.btn.input-file {
+    padding: 0;
+}
+
+::-webkit-file-upload-button {
+    content: 'No File Choosen';
+}

@@ -9,6 +9,7 @@ export class MovieItemComponent implements OnInit {
 
   @Input() movieinfo: any;
   @Input() selectedMovie: boolean;
+  @Input() movieIndex: number;
   constructor() { }
 
   ngOnInit(): void {
