@@ -1,0 +1,24 @@
+.navbar {
+  .navba--font-color {
+    color: #e50914;
+  } 
+  .nav-pills 
+  {
+    .nav-link {
+        color: #e50914;
+    }
+    .nav-link.active {
+        color: #343a40;
+        background-color: #e50914;
+  }
+  } 
+  .navbar-toggler {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) {
+ .navbar .navbar-toggler {
+    display: block;
+    background-color: #e50914;
+  }
+}
