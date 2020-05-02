@@ -1,0 +1,9 @@
+@import '../styles/variables';
+.card {
+    flex-direction: row;
+    .icon-trash {
+        padding: 20px;
+        color: $secondary-color;
+        font-size: 30px;
+    }
+}
