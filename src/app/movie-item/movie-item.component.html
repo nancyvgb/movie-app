@@ -1,7 +1,9 @@
-<div class="card">
+<div class="card" [ngClass]="{'text-white bg-dark': selectedMovie}">
     <div class="card-body">
       <h5 class="card-title">{{movieinfo.title}}</h5>
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <i class="fa-trash"></i>
+      <i class="fas fa-file"></i>
     </div>
   </div>
 

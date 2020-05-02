@@ -8,11 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MovieItemComponent implements OnInit {
 
   @Input() movieinfo: any;
+  @Input() selectedMovie: boolean;
   constructor() { }
 
   ngOnInit(): void {
     console.log('movieInfo', this.movieinfo)
   }
   
-
+   getMovieInfo(event) {
+    console.log('movie deatil', event)
+  }
 }

@@ -1,0 +1,12 @@
+@import './variables';
+
+button {
+    background-color: $secondary-color;
+    color: $white;
+    outline: none;
+    &:hover {
+        background-color: $main-color;
+        color: $white;
+    }
+
+} 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService} from '../movies.service'
+import { MoviesService } from '../movies.service'
 import { Subscription } from 'rxjs';
 import {
   trigger,
@@ -14,7 +14,7 @@ import {
   animations: [
     trigger('openClose', [
       state('open', style({
-        position: 'absolute', 
+        position: 'absolute',
         width: '100%',
         height: '100%',
         top: '97px',
@@ -40,8 +40,9 @@ import {
   styleUrls: ['./home-component.component.scss']
 })
 export class HomeComponentComponent implements OnInit {
-  clickEventsubscription:Subscription;
-  showSideBar:boolean= false;
+  clickEventsubscription: Subscription;
+  showSideBar: boolean = false;
+  emptyState: boolean;
   moviesList = [
     {
       title: "Mi pobre angelito"
@@ -50,20 +51,35 @@ export class HomeComponentComponent implements OnInit {
       title: "Titanic"
     }
   ]
-
-  constructor(private moviesService:MoviesService) {
-    this.clickEventsubscription = this.moviesService.getClickEvent().subscribe(()=>{
+  movieDetail: object;
+  constructor(private moviesService: MoviesService) {
+    this.clickEventsubscription = this.moviesService.getClickEvent().subscribe(() => {
       this.toggleSideBar();
-      })
-   }
+    })
+  }
 
   ngOnInit(): void {
+    this.emptyState = this.moviesList.length == 0
+  }
+
+  /**
+   *toggle side bar on mobile view
+   *
+   * @memberof HomeComponentComponent
+   */
+  toggleSideBar() {
+    this.showSideBar = !this.showSideBar;
   }
   
-
-  toggleSideBar(){
-    this.showSideBar = !this.showSideBar;
-    console.log(' this.showSideBar',  this.showSideBar)
-}
+  /**
+   *
+   * Get movie info from child component
+   * @param {*} event
+   * @memberof HomeComponentComponent
+   */
+  getMovieInfo(event) {
+    this.movieDetail = event
+    console.log('this.movieDetail', this.movieDetail)
+  }
 
 }
