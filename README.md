@@ -3,7 +3,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
 ## Running the Application
-1. Install the Angular CLI
+1. Install Angular CLI
+
 Run `npm install -g @angular/cli`
 
 2. Run `npm install`
