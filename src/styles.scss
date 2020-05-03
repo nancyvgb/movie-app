@@ -2,12 +2,29 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 $fa-font-path: "../node_modules/font-awesome/fonts";
 @import '../node_modules/font-awesome/scss/font-awesome.scss';
+@import './app/styles/variables';
 .card {
     .card-header--display{
         display: flex;
         .btn--display-right {
             margin-left: auto;
         }
+    }
+}
+ngb-datepicker {
+    position: absolute;
+    background-color: white;
+
+    .ngb-dp-header {
+        background-color: $secondary-color;
+    }
+    .ngb-dp-navigation-chevron {
+       color: $white;
+    }
+
+    select {
+        background-color: $main-color;
+        color: white;
     }
 }
 /* Importing Bootstrap SCSS file. */

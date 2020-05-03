@@ -14,12 +14,13 @@ export class NavigationComponentComponent implements OnInit {
   constructor(private moviesService:MoviesService, private router: Router) { }
 
   ngOnInit(): void {
+    console.log('route', this.router.url);
 
   }
   toggleSideBar() {
     this.toggleNav = !this.toggleNav;
     this.moviesService.sendClickEvent();
-   // this.onSelect.emit(this.toggleNav);
+    this.onSelect.emit(this.toggleNav);
   }
   homeView(){
     this.router.navigate(['/home']);

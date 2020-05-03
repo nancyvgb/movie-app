@@ -52,6 +52,9 @@ export class HomeComponentComponent implements OnInit {
 
   ngOnInit(): void {
     this.moviesList = this.moviesService.getItem('movieList');
+    this.clickEventsubscription = this.moviesService.getClickEvent().subscribe(() => {
+      this.toggleSideBar();
+    })
 
   }
 
@@ -61,6 +64,7 @@ export class HomeComponentComponent implements OnInit {
    * @memberof HomeComponentComponent
    */
   toggleSideBar() {
+  
     this.showSideBar = !this.showSideBar;
   }
   

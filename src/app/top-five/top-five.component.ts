@@ -11,6 +11,7 @@ import { MoviesService } from '../movies.service';
 })
 export class TopFiveComponent implements OnInit {
   moviesTopFive = Array<MoviesTop>();
+  showSpinner : boolean = true;
 
   constructor(private moviesService: MoviesService) { }
 
@@ -19,7 +20,7 @@ export class TopFiveComponent implements OnInit {
     
     this.moviesService.getTopFive().subscribe(response => {
       this.moviesTopFive = response;   
-      console.log(response)  
+      this.showSpinner = false;
     }
     );
 
