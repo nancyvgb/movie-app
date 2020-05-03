@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesTop } from '../models/movies-top-model'
+import { MoviesService } from '../movies.service';
+
+
 
 @Component({
   selector: 'app-top-five',
@@ -6,10 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-five.component.scss']
 })
 export class TopFiveComponent implements OnInit {
+  moviesTopFive = Array<MoviesTop>();
 
-  constructor() { }
+  constructor(private moviesService: MoviesService) { }
 
   ngOnInit(): void {
+
+    
+    this.moviesService.getTopFive().subscribe(response => {
+      this.moviesTopFive = response;   
+      console.log(response)  
+    }
+    );
+
+    
   }
 
 }

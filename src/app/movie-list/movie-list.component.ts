@@ -9,6 +9,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 export class MovieListComponent implements OnInit {
   @Input() movieList: Array<object>;
   @Output() sendMovieInfo = new EventEmitter<object>();
+  @Output() updateHomeView = new EventEmitter<object>();
   selectedIndex: number = null;
   constructor() { }
 
@@ -21,7 +22,7 @@ export class MovieListComponent implements OnInit {
   }
   removeItem(event) {
     this.movieList = event;
- 
+    this.updateHomeView.emit(event);
   }
 
 }

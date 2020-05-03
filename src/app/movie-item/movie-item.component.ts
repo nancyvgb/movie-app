@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {MoviesService} from '../movies.service'
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-movie-item',
@@ -12,7 +13,19 @@ export class MovieItemComponent implements OnInit {
   @Input() selectedMovie: boolean;
   @Input() movieIndex: number;
   @Output() removeItem = new EventEmitter<object>();
-  constructor(private movieService :  MoviesService) { }
+   mySubscription: any;
+  constructor(private movieService :  MoviesService, private router: Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+    this.mySubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Trick the Router into believing it's last link wasn't previously loaded
+        this.router.navigated = false;
+      }
+    });
+    
+   }
 
   ngOnInit(): void {
 
@@ -27,6 +40,13 @@ export class MovieItemComponent implements OnInit {
    console.log('skice', movieList.splice(index, 1))
     this.movieService.setItem('movieList', movieList);
     this.removeItem.emit(movieList);
-    console.log('index', movieList)
+    this.router.navigated = true;
+    //this.router.navigate(['/home']);
+  }
+
+  ngOnDestroy() {
+    if (this.mySubscription) {
+      this.mySubscription.unsubscribe();
+    }
   }
 }

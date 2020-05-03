@@ -1,1 +1,14 @@
-<p>top-five works!</p>
+<div class="card" *ngFor="let movie of moviesTopFive">
+    <div class="row no-gutters">
+      <div class="col-md-2">
+        <img src="{{movie.image}}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-10">
+        <div class="card-body">
+          <h5 class="card-title">{{movie.title}}</h5>
+          <p class="card-text">{{movie.description}}</p>
+          <p class="card-text"><small class="text-muted"> Release Date: {{ movie.release | date }}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>

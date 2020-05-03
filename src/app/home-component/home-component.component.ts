@@ -47,9 +47,7 @@ export class HomeComponentComponent implements OnInit {
   moviesList: Array<object> = [];
   movieDetail: object;
   constructor(private moviesService: MoviesService) {
-    this.clickEventsubscription = this.moviesService.getClickEvent().subscribe(() => {
-      this.toggleSideBar();
-    })
+  
   }
 
   ngOnInit(): void {
@@ -73,7 +71,12 @@ export class HomeComponentComponent implements OnInit {
    * @memberof HomeComponentComponent
    */
   getMovieInfo(event) {
-    this.movieDetail = event
+    this.movieDetail = event // send movie info to detail component
   }
+ 
+  updateHome(event) {
+    this.movieDetail = {};
+    this.moviesList = event;
+  } 
 
 }
