@@ -1,7 +1,7 @@
 <ng-container *ngFor="let movie of movieList; let i = index">
     <div class="movie-item-container" (click)="movieDetail(movie, i)"
     [class.active]="selectedIndex === i" >
-        <app-movie-item [movieIndex]="i" [selectedMovie]="selectedIndex === i" [movieinfo]='movie'
+        <app-movie-item (removeItem)="removeItem($event)" [movieIndex]="i" [selectedMovie]="selectedIndex === i" [movieinfo]='movie'
         ></app-movie-item>
     </div>
 </ng-container>

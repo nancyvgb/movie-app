@@ -18,7 +18,10 @@ export class MovieListComponent implements OnInit {
   movieDetail(movie: object, index: number) {
     this.sendMovieInfo.emit(movie);
     this.selectedIndex = index;
-    console.log('this.movieList', this.movieList)
+  }
+  removeItem(event) {
+    this.movieList = event;
+ 
   }
 
 }

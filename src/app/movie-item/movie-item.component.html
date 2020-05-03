@@ -4,7 +4,7 @@
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
     </div>
     <div *ngIf="selectedMovie" class="icon-trash">
-      <i class="fa fa-trash-o" aria-hidden="true"></i>
+      <i (click)="removeMove(movieIndex)" class="fa fa-trash-o" aria-hidden="true"></i>
     </div>
 </div>
 

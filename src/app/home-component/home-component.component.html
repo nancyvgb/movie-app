@@ -12,7 +12,7 @@
         <ng-container *ngIf="!moviesList || moviesList?.length == 0">
             <div class="alert alert-light alert--center" role="alert">
                 <p>You haven`t created a movie yet. Click on Add Movie button to create one.</p>
-                <button class="btn">Add Movie</button>
+                <button routerLink="/addMovie" class="btn">Add Movie</button>
               </div>
         </ng-container>
     </div>

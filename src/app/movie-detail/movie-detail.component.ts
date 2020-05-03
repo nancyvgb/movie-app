@@ -9,16 +9,12 @@ export class MovieDetailComponent implements OnInit {
   @Input() movieDetail: any;
   startDate: any;
   constructor() {
-    if(this.movieDetail) {
-      this.startDate = new Date(this.movieDetail.releaseDate.year, this.movieDetail.releaseDate.month, this.movieDetail.releaseDate.day);
-    }
+  
    
    }
 
   ngOnInit(): void {
-    console.log('movieDetail', this.movieDetail)
-    console.log('startDate', this.startDate)
-    console.log('date')
+  
   }
  
 }
