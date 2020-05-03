@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
-import { MoviesService} from '../movies.service'
+import { MoviesService} from '../movies.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { MoviesService} from '../movies.service'
 export class NavigationComponentComponent implements OnInit {
   toggleNav : boolean = false;
   @Output() onSelect = new EventEmitter<boolean>();
-  constructor(private moviesService:MoviesService) { }
+  constructor(private moviesService:MoviesService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -20,6 +21,10 @@ export class NavigationComponentComponent implements OnInit {
     this.moviesService.sendClickEvent();
    // this.onSelect.emit(this.toggleNav);
   }
+  homeView(){
+    this.router.navigate(['/home']);
+  }
+  
 
  
 }
