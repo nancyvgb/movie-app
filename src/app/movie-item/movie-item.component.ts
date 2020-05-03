@@ -13,7 +13,7 @@ export class MovieItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('movieInfo', this.movieinfo)
+
   }
   
    getMovieInfo(event) {

@@ -7,10 +7,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MovieDetailComponent implements OnInit {
   @Input() movieDetail: any;
-  constructor() { }
+  startDate: any;
+  constructor() {
+    if(this.movieDetail) {
+      this.startDate = new Date(this.movieDetail.releaseDate.year, this.movieDetail.releaseDate.month, this.movieDetail.releaseDate.day);
+    }
+   
+   }
 
   ngOnInit(): void {
     console.log('movieDetail', this.movieDetail)
+    console.log('startDate', this.startDate)
+    console.log('date')
   }
  
 }

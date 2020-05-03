@@ -53,16 +53,8 @@ export class HomeComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.emptyState = this.moviesList.length == 0;
-    let data = localStorage.getItem('movieList');
-    this.moviesService.itemValue.subscribe((nextValue) => {
-    let list = JSON.parse(nextValue);
-    this.moviesList = list;
-      console.log('this.moviesList', this.moviesList)
-   })
-   
-  
-   // console.log('this.moviesList', this.moviesList)
+    this.moviesList = this.moviesService.getItem('movieList');
+
   }
 
   /**
@@ -82,7 +74,6 @@ export class HomeComponentComponent implements OnInit {
    */
   getMovieInfo(event) {
     this.movieDetail = event
-    console.log('this.movieDetail', this.movieDetail)
   }
 
 }

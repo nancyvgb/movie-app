@@ -1,23 +1,23 @@
- <div *ngIf="movieDetail?.title; else elseBlock" class="card">
-    <div class="card-body">
-        <div class="card bg-light">
-            <div class="card-header card-header--display">{{movieDetail?.title ? movieDetail.title: 'header' }}
-              <button routerLink="/addMovie" class="btn btn--display-right">Add New Movie</button>
-            </div>
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
-              </div>
-              <div class="col-md-12">
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>       
-                </div>
-              </div>
-            </div>
-          </div>
+
+  <div class="card mb-3" *ngIf="movieDetail?.title; else elseBlock">
+    <div class="card-header card-header--display">
+      <button routerLink="/addMovie" class="btn btn--display-right">Add New Movie</button>
     </div>
-  </div> 
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img class="card-img-top" src="{{movieDetail.image}}" alt="Card image cap">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="card-body">
+            <h5 class="card-title">{{movieDetail?.title ? movieDetail.title: 'header' }}</h5>
+            <p class="card-text"><small class="text-muted"> Release Date: {{ movieDetail.releaseDate | date }}</small></p>
+          </div>
+          <p class="card-text">{{movieDetail.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
   <ng-template #elseBlock>
     <div class="alert alert-light" role="alert">
      Please click on a movie item to display additional

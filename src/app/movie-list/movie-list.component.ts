@@ -13,10 +13,12 @@ export class MovieListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('this.movieList', this.movieList)
   }
   movieDetail(movie: object, index: number) {
     this.sendMovieInfo.emit(movie);
     this.selectedIndex = index;
+    console.log('this.movieList', this.movieList)
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <ng-container *ngIf="!emptyState">
+        <ng-container *ngIf="moviesList && moviesList?.length > 0 ">
             <div [@openClose]="showSideBar ? 'open' : 'closed'" class="col-md-4 d-md-block sidebar sidebar--mobile">
                 <app-movie-list (sendMovieInfo)="getMovieInfo($event)" [movieList]="moviesList"></app-movie-list>
             </div>
@@ -9,10 +9,10 @@
                 <app-movie-detail [movieDetail]="movieDetail"></app-movie-detail>
             </div>
         </ng-container>
-        <ng-container *ngIf="emptyState">
+        <ng-container *ngIf="!moviesList || moviesList?.length == 0">
             <div class="alert alert-light alert--center" role="alert">
                 <p>You haven`t created a movie yet. Click on Add Movie button to create one.</p>
-                <button routerLink="/addMovie" class="btn">Add Movie</button>
+                <button class="btn">Add Movie</button>
               </div>
         </ng-container>
     </div>
