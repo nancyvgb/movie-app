@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MovieItemComponent } from './movie-item.component';
 
 describe('MovieItemComponent', () => {
@@ -8,7 +8,8 @@ describe('MovieItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieItemComponent ]
+      declarations: [ MovieItemComponent ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   }));
@@ -19,7 +20,5 @@ describe('MovieItemComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+ 
 });

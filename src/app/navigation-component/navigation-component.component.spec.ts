@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NavigationComponentComponent } from './navigation-component.component';
 
 describe('NavigationComponentComponent', () => {
@@ -8,7 +8,8 @@ describe('NavigationComponentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavigationComponentComponent ]
+      declarations: [ NavigationComponentComponent ],
+      imports: [HttpClientTestingModule],
     })
     .compileComponents();
   }));
@@ -22,4 +23,9 @@ describe('NavigationComponentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should have Navigation Bar', () => {
+    const btn = fixture.debugElement.nativeElement.querySelector('#spec-navigation');
+    expect(btn).toBeTruthy();
+  });
+  
 });

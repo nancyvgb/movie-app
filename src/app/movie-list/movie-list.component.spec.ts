@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MovieListComponent } from './movie-list.component';
 
 describe('MovieListComponent', () => {
@@ -8,7 +8,8 @@ describe('MovieListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieListComponent ]
+      declarations: [ MovieListComponent ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   }));

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TopFiveComponent } from './top-five.component';
 
 describe('TopFiveComponent', () => {
@@ -8,7 +8,8 @@ describe('TopFiveComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopFiveComponent ]
+      declarations: [ TopFiveComponent ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   }));
