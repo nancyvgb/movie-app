@@ -7,10 +7,6 @@ import { DebugElement } from '@angular/core';
 describe('AddMovieComponent', () => {
   let component: AddMovieComponent;
   let fixture: ComponentFixture<AddMovieComponent>;
-  let mockRouter = {
-    navigate: jasmine.createSpy('navigate');
-  }
-  let saveBtnEl: HTMLElement;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AddMovieComponent ],
@@ -18,7 +14,7 @@ describe('AddMovieComponent', () => {
         {
             provide: Router,
             useClass: class { 
-                navigate = jasmine.createSpy("navigate"); 
+                navigate = jasmine.createSpy("navigate")
             }
         }]
       
@@ -34,12 +30,7 @@ describe('AddMovieComponent', () => {
 
   });
   
-  it('should navigate to /login when clickLogout is fired', () => {
-    let router = fixture.debugElement.injector.get(Router);
-    saveBtnEl.click()
-    expect(router.navigate).toHaveBeenCalledWith(["/addMovie"]);
- })
-  
+
 
   
 });

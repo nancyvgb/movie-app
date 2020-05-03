@@ -28,7 +28,7 @@ describe('NavigationComponentComponent', () => {
         {
             provide: Router,
             useClass: class { 
-                navigate = jasmine.createSpy("navigate"); 
+                navigate = jasmine.createSpy("navigate")
             }
         }]
       
@@ -52,15 +52,12 @@ describe('NavigationComponentComponent', () => {
     expect(btn).toBeTruthy();
   });
 
- it('should navigate to /home when clickLogout is fired', () => {
+ it('should navigate to /home when click is fired', () => {
     let router = fixture.debugElement.injector.get(Router);
     logoutBtnEl = fixture.debugElement.nativeElement.querySelector('#logo');
     logoutBtnEl.click()
     expect(router.navigate).toHaveBeenCalledWith(["/home"]);
  }); 
-
-
-
   
   
   
