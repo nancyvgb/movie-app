@@ -7,6 +7,7 @@ import { DebugElement } from '@angular/core';
 describe('AddMovieComponent', () => {
   let component: AddMovieComponent;
   let fixture: ComponentFixture<AddMovieComponent>;
+  let saveBtnEl : HTMLElement
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AddMovieComponent ],

@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import { MoviesService} from '../movies.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 
 @Component({
@@ -11,11 +11,13 @@ import { Router } from '@angular/router';
 export class NavigationComponentComponent implements OnInit {
   toggleNav : boolean = false;
   @Output() onSelect = new EventEmitter<boolean>();
-  constructor(private moviesService:MoviesService, private router: Router) { }
+  constructor(private moviesService:MoviesService, private router: Router) {
+    
+   }
 
   ngOnInit(): void {
-    console.log('route', this.router.url);
-
+    
+    
   }
   toggleSideBar() {
     this.toggleNav = !this.toggleNav;
@@ -26,6 +28,6 @@ export class NavigationComponentComponent implements OnInit {
     this.router.navigate(['/home']);
   }
   
-
+ 
  
 }

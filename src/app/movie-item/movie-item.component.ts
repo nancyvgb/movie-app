@@ -15,6 +15,7 @@ export class MovieItemComponent implements OnInit {
   @Output() removeItem = new EventEmitter<object>();
    mySubscription: any;
   constructor(private movieService :  MoviesService, private router: Router) {
+    
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     };
@@ -41,7 +42,6 @@ export class MovieItemComponent implements OnInit {
     this.movieService.setItem('movieList', movieList);
     this.removeItem.emit(movieList);
     this.router.navigated = true;
-    //this.router.navigate(['/home']);
   }
 
   ngOnDestroy() {

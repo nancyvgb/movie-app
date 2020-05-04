@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../movies.service'
 import { Subscription } from 'rxjs';
-import {MovieModel} from '../models/movie-model'
 import {
   trigger,
   state,

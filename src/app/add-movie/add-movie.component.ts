@@ -35,8 +35,6 @@ export class AddMovieComponent implements OnInit {
     } else {
       this.modalText = "No file Selected"
       this.open(modal);
-
-     // alert("No file selected");
     }
   }
 
