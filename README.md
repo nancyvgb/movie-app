@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
+![movies-app_3](https://user-images.githubusercontent.com/16921201/80932058-348b5480-8d83-11ea-8aca-894ccc7db05a.gif)
+
+
 ## Running the Application
 1. Install Angular CLI
 
@@ -14,6 +17,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
 
 ## Build
 
