@@ -9,9 +9,11 @@
             </div>
         </ng-container>
         <ng-container *ngIf="!moviesList || moviesList?.length == 0">
-            <div class="alert alert-light alert--center" role="alert">
-                <p>You haven`t created a movie yet. Click on Add Movie button to create one.</p>
-                <button  routerLink="/addMovie" class="btn">Add Movie</button>
+              <div class="jumbotron d-flex align-items-center min-vh-100">
+                <div class="container text-center">
+                    <p>You haven`t created a movie yet. Click on Add Movie button to create one.</p>
+                    <button  routerLink="/addMovie" class="btn">Add Movie</button>
+                </div>
               </div>
         </ng-container>
     </div>
