@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
+![movies-app_3](https://user-images.githubusercontent.com/16921201/80932058-348b5480-8d83-11ea-8aca-894ccc7db05a.gif)
+
+
 ## Running the Application
 1. Install Angular CLI
 
@@ -14,6 +17,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
 
 ## Build
 
@@ -30,3 +34,9 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## References
+https://angular.io/docs
+https://stackblitz.com/edit/angular-image-base64?file=src%2Fapp%2Fapp.component.ts
+https://medium.com/@tejozarkar/angular-route-transition-animation-in-5-easy-steps-ab0ddc8230e
+
